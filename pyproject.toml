@@ -1,0 +1,24 @@
+[project]
+name = "research-assistant"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "sivakumar232", email = "sivakumarr3105@gmail.com" }
+]
+requires-python = ">=3.12"
+dependencies = [
+    "chromadb>=1.5.9",
+    "langchain-core>=1.5.5",
+    "langchain-text-splitters>=1.1.2",
+    "llama-parse>=0.6.94",
+    "python-dotenv>=1.2.3",
+    "sentence-transformers>=5.7.0",
+]
+
+[project.scripts]
+research-assistant = "research_assistant:main"
+
+[build-system]
+requires = ["uv_build>=0.12.2,<0.13.0"]
+build-backend = "uv_build"
