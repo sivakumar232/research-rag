@@ -16,6 +16,9 @@ __pycache__/
 # Project Specific Data Folders
 data/chroma_db/
 data/research_papers/processed/
+data/kb_processed/
+kb_pdf/
+*.pdf
 
 # IDEs & Editor Files
 .vscode/

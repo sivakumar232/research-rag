@@ -38,14 +38,16 @@ def chunk_documents(
             separator="\n"
         )
 
-    chunked_docs = splitter.split_documents(documents)
-
-    # Enrich metadata for tracking and citations
-    for idx, doc in enumerate(chunked_docs):
-        source_name = doc.metadata.get("source", "unknown")
-        doc.metadata["chunk_id"] = f"{source_name}_chunk_{idx}"
-        doc.metadata["chunk_index"] = idx
-        doc.metadata["total_chunks"] = len(chunked_docs)
-        doc.metadata["chunk_size"] = len(doc.page_content)
+    chunked_docs = []
+    for doc in documents:
+        # Split each document individually to calculate proper per-document metadata
+        doc_chunks = splitter.split_documents([doc])
+        for idx, chunk in enumerate(doc_chunks):
+            source_name = chunk.metadata.get("source", "unknown")
+            chunk.metadata["chunk_id"] = f"{source_name}_chunk_{idx}"
+            chunk.metadata["chunk_index"] = idx
+            chunk.metadata["total_chunks"] = len(doc_chunks)
+            chunk.metadata["chunk_size"] = len(chunk.page_content)
+            chunked_docs.append(chunk)
 
     return chunked_docs
