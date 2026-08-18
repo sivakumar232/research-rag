@@ -14,7 +14,7 @@ def load_pdfs_from_directory(
     """
     raw_dir_obj = Path(raw_dir)
     documents = []
-    
+        
     # 1. Check if the raw directory exists
     if not raw_dir_obj.exists():
         print(f"Directory {raw_dir} does not exist. Creating it.")
