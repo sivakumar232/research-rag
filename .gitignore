@@ -1,1 +1,30 @@
+# Environment Variables (CRITICAL)
+.env
+.env.local
+.env.*
+
+# Python Virtual Environments
+.venv/
+venv/
+env/
+
+# Byte-compiled / optimized files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Project Specific Data Folders
+data/chroma_db/
+data/research_papers/processed/
+
+# IDEs & Editor Files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Ignore specific large files
 resource.md
+
+# Logs
+*.log
